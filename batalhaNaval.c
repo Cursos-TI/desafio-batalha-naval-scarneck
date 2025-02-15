@@ -35,6 +35,11 @@ int main() {
         printf("\n");
     }  //tabuleiro impresso.
 
+    
+    printf ("O navio #1 está nas cordenadas (3,0),(2,1),(1,2),(0,3)\n");
+    printf ("O navio #2 está nas cordenadas (1,5),(1,6),(1,7),(1,8)\n");
+    printf ("O navio #3 está nas cordenadas (4,2),(5,2),(6,2),(7,2)\n");
+    printf ("O navio #4 está nas cordenadas (6,6),(7,7),(8,8),(9,9)\n");
 
 
     // Nível Mestre - Habilidades Especiais com Matrizes
