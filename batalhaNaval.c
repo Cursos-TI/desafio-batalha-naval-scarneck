@@ -5,6 +5,42 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
 // Siga os comentários para implementar cada parte do desafio.
 
+// Habilidades
+void octa(int tab[LINHAS][COLUNAS], int x , int y){
+    tab[x][y] = 1;
+    tab[x+1][y] = 1;
+    tab[x][y+1] = 1;
+    tab[x-1][y] = 1;
+    tab[x][y-1] = 1;
+}
+void cone(int tab[LINHAS][COLUNAS], int x , int y){
+    tab[x][y] = 1;
+    tab[x+1][y] = 1;
+    tab[x][y+1] = 1;
+    tab[x-1][y] = 1;
+    tab[x][y-1] = 1;
+
+    tab[x+1][y+1] = 1;
+    tab[x+1][y-1] = 1;
+    tab[x+1][y+2] = 1;
+    tab[x+1][y-2] = 1;
+}
+void cruz(int tab[LINHAS][COLUNAS], int x , int y){
+    tab[x][y] = 1;
+    tab[x+1][y] = 1;
+    tab[x][y+1] = 1;
+    tab[x-1][y] = 1;
+    tab[x][y-1] = 1;
+
+    tab[x][y+2] = 1;
+    tab[x][y-2] = 1;
+    tab[x+2][y] = 1;
+    tab[x-2][y] = 1;
+}
+// Ainda não consegui usar loop aninhado para executar as skills
+
+
+
 int main() {
     // Nível Novato - Posicionamento dos Navios
     // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
@@ -15,6 +51,8 @@ int main() {
     // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
     // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
     // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
+    
+
     int tab[LINHAS][COLUNAS];
 
     // Inicializa a matriz com zeros
@@ -49,22 +87,6 @@ int main() {
         tab[i + t][j + t] = 3;  // Movendo para baixo e para a direita
     }
 
-    // Impressão da matriz
-    for (int i = 0; i < LINHAS; i++) { 
-        for (int j = 0; j < COLUNAS; j++) {
-            printf(" %d \t", tab[i][j]);
-        }
-        printf("\n");
-    }
-
-    // Coordenadas dos navios
-    printf("\nO navio #1 está nas coordenadas (3,0), (2,1), (1,2), (0,3)\n");
-    printf("O navio #2 está nas coordenadas (1,5), (1,6), (1,7), (1,8)\n");
-    printf("O navio #3 está nas coordenadas (4,2), (5,2), (6,2), (7,2)\n");
-    printf("O navio #4 está nas coordenadas (6,6), (7,7), (8,8), (9,9)\n");
-
-
-
 
     // Nível Mestre - Habilidades Especiais com Matrizes
     // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
@@ -86,6 +108,29 @@ int main() {
     // 0 0 1 0 0
     // 1 1 1 1 1
     // 0 0 1 0 0
+
+
+    // Execução das habilidades (você define o local da skill pelos índices)
+    cruz(tab,4,7);
+    octa(tab,3,3);
+    cone(tab,7,4);
+
+    // Impressão da matriz
+    for (int i = 0; i < LINHAS; i++) { 
+        for (int j = 0; j < COLUNAS; j++) {
+            printf("%d\t", tab[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Coordenadas dos navios
+    printf("\nO navio #1 está nas coordenadas (3,0), (2,1), (1,2), (0,3)\n");
+    printf("O navio #2 está nas coordenadas (1,5), (1,6), (1,7), (1,8)\n");
+    printf("O navio #3 está nas coordenadas (4,2), (5,2), (6,2), (7,2)\n");
+    printf("O navio #4 está nas coordenadas (6,6), (7,7), (8,8), (9,9)\n");
+
+
+
 
     return 0;
 }
